@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         Book(name: "YOOO", author: "WEX", checkedout: 0, reserved: 0, bookID: "145345", count: 10),
         Book(name: "WATUP", author: "WEX", checkedout: 0, reserved: 0, bookID: "234534", count: 10),
     ]
+    var loadedBooks: [Book] = []
 
 
     override func viewDidLoad() {
@@ -60,8 +61,10 @@ class ViewController: UIViewController {
 
 
         //test checkout
-        checkout(user: myUser, checkedoutBook: library[2])
+        //checkout(user: myUser, checkedoutBook: library[2])
 
+        //test read
+        readLibrary()
 
     }
 
@@ -77,12 +80,35 @@ class ViewController: UIViewController {
             self.ref.child("library").child(book.bookID).child("name").setValue(book.name) //setValue(["name": books[1].name])
             self.ref.child("library").child(book.bookID).child("author").setValue(book.author)//setValue(["author": books[1].author])
             self.ref.child("library").child(book.bookID).child("checkedout").setValue(book.checkedout)//setValue(["checkedout": String(books[1].checkedout)])
-            self.ref.child("library").child(book.bookID).child("reserved").setValue(String(book.reserved))//setValue(["reserved": String(books[1].reserved)])
+            self.ref.child("library").child(book.bookID).child("reserved").setValue(book.reserved)//setValue(["reserved": String(books[1].reserved)])
             self.ref.child("library").child(book.bookID).child("count").setValue(book.count)//setValue(["count": String(books[1].count)])
         }
     }
 
+    func readLibrary(){
+        ref.child("library").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let values = snapshot.value as? NSDictionary
+            for (key, val) in values! {
+                let dict = val as! NSDictionary
+                let name = dict["name"] as! String
+                let author = dict["author"] as! String
+                let checkedout = dict["checkedout"] as! Int
+                let count = dict["count"] as! Int
+                let reserved = dict["reserved"] as! Int
+
+                var book = Book(name: name, author: author, checkedout: checkedout, reserved: reserved, bookID: key as! String, count: count)
+                self.loadedBooks.append(book)
+            }
+
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
+    }
+
     //adds book to user book list and updates library
+    //have to check if user already has checked out the book, if it does don't call this function
     func checkout(user: User, checkedoutBook: Book){
         user.books.append(checkedoutBook)
 
