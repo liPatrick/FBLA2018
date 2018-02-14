@@ -10,6 +10,7 @@
 		339BFC4DDE3C00410C7C61F8 /* Pods_FBLA2018Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F45869BD8E5B69AA4F13D2D /* Pods_FBLA2018Tests.framework */; };
 		3A94B055EC8EE3A62381BF8A /* Pods_FBLA2018UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A889609F101C6271049E5D5 /* Pods_FBLA2018UITests.framework */; };
 		5251649D57E04CC9B6F6770B /* Pods_FBLA2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6F3DB563BB354D86A4C7A7 /* Pods_FBLA2018.framework */; };
+		9D0C34C220340676000B158F /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C34C120340676000B158F /* Image.swift */; };
 		9D32F1B8202E81F900367A8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32F1B7202E81F900367A8B /* AppDelegate.swift */; };
 		9D32F1BA202E81F900367A8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32F1B9202E81F900367A8B /* ViewController.swift */; };
 		9D32F1BD202E81F900367A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D32F1BB202E81F900367A8B /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		585567CEE710E294D250DE85 /* Pods-FBLA2018UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBLA2018UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBLA2018UITests/Pods-FBLA2018UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F45869BD8E5B69AA4F13D2D /* Pods_FBLA2018Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBLA2018Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A889609F101C6271049E5D5 /* Pods_FBLA2018UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBLA2018UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0C34C120340676000B158F /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9D32F1B4202E81F900367A8B /* FBLA2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBLA2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D32F1B7202E81F900367A8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D32F1B9202E81F900367A8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				9D32F1B7202E81F900367A8B /* AppDelegate.swift */,
 				9D32F1B9202E81F900367A8B /* ViewController.swift */,
+				9D0C34C120340676000B158F /* Image.swift */,
 				9D32F1BB202E81F900367A8B /* Main.storyboard */,
 				9D32F1BE202E81F900367A8B /* Assets.xcassets */,
 				9D32F1C0202E81F900367A8B /* LaunchScreen.storyboard */,
@@ -397,12 +400,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FBLA2018/Pods-FBLA2018-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -471,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D32F1BA202E81F900367A8B /* ViewController.swift in Sources */,
+				9D0C34C220340676000B158F /* Image.swift in Sources */,
 				9D32F1B8202E81F900367A8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

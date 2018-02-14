@@ -8,6 +8,7 @@ target 'FBLA2018' do
   # Pods for FBLA2018
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   target 'FBLA2018Tests' do
     inherit! :search_paths
